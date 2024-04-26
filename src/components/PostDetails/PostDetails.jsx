@@ -6,18 +6,8 @@ import Save from '../../assets/guardar-instagram.png';
 
 const PostDetails = ({ currentArticle, closeArticle }) => {
 
-    // console.log(currentArticle)
+    
     const { _id, images, description, likes, user, comments, publication_date } = currentArticle;
-    /* 
-    * images
-    * comments
-    * publication_date
-    * likes
-    * user
-        * foto
-        * username
-    */
-   console.log(user)
 
     const calculateElapsedTime = () => {
         const publication = new Date(publication_date);
