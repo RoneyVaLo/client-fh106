@@ -5,6 +5,8 @@ import UserInfo from '../components/UserInfo/ProfileInfo'
 import PostNavigation from '../components/PostNavigation/PostNavigation';
 import PostsView from '../components/PostsView/PostsView';
 
+import DataPosts from '../data/posts.json';
+
 
 const UserPage = () => {
 
@@ -37,8 +39,9 @@ const UserPage = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             
-            const {data} = await axios.get(`https://server-fh106.vercel.app/api/posts/?user=65e57068fb02872525c18f73`)
-            setPosts(data);
+            // const {data} = await axios.get(`https://server-fh106.vercel.app/api/posts/?user=65e57068fb02872525c18f73`)
+            // console.log(DataPosts)
+            setPosts(DataPosts);
         }
 
         fetchPosts();
