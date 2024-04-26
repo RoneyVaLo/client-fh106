@@ -37,7 +37,7 @@ const UserPage = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             
-            const {data} = await axios.get(`http://localhost:4000/api/posts/?user=65e57068fb02872525c18f73`)
+            const {data} = await axios.get(`https://server-fh106.vercel.app/api/posts/?user=65e57068fb02872525c18f73`)
             setPosts(data);
         }
 
