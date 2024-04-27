@@ -9,6 +9,7 @@ const PostDetails = ({ currentArticle, closeArticle }) => {
     
     const { _id, images, description, likes, user, comments, publication_date } = currentArticle;
 
+
     const calculateElapsedTime = () => {
         const publication = new Date(publication_date);
         const differenceInMilliseconds = new Date() - publication;
@@ -104,13 +105,13 @@ const PostDetails = ({ currentArticle, closeArticle }) => {
                                 className='mr-3'
                             >
                                 <img
-                                    src="https://www.revistaesfinge.com/wp-content/uploads/2015/01/2f7bb693f9e8b1bbf875f0818996978d.jpg"
+                                    src={user.profile_image}
                                     alt="imagen de perfil de usuario"
                                     className='h-10 w-10 cursor-pointer rounded-full'
                                 />
                             </div>
                             <div id='username'>
-                                <h2 className='cursor-pointer hover:opacity-60'>FH-106</h2>
+                                <h2 className='cursor-pointer hover:opacity-60'>{user.username}</h2>
                             </div>
                         </header>
 
