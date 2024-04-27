@@ -152,7 +152,7 @@ const PostDetails = ({ currentArticle, closeArticle }) => {
                     >
 
                         <div className='my-2 p-2 border-b'>
-                            <div className='mb-4 flex flex-col'>
+                            <div className='mb-4 flex flex-col overflow-y-auto max-h-80 pr-4'>
                                 {description.split('\n').map((line, index) => (
                                     <p key={index} className='text-justify'>{line}</p>
                                 ))}
