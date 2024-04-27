@@ -38,8 +38,8 @@ const UserPage = () => {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            
-            const {data} = await axios.get(`https://server-fh106.onrender.com/api/posts?user=65e57068fb02872525c18f73`)
+
+            const { data } = await axios.get(`https://server-fh106.onrender.com/api/posts?user=65e57068fb02872525c18f73`)
             // console.log(DataPosts)
             setPosts(data);
         }
@@ -57,7 +57,13 @@ const UserPage = () => {
 
             {((checkedSection === 0) && posts) && <PostsView posts={posts} />}
 
-            <footer></footer>
+            <footer className="mt-5 pt-5 pb-5 text-center flex justify-center gap-8 items-center border-t">
+                <h2 className="text-base font-medium m-0 opacity-50">
+                    Roney Valdelomar
+                </h2>
+                <span className="text-sm opacity-50">2024</span>    
+            </footer>
+
         </div>
     )
 }

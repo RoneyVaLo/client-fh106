@@ -85,7 +85,7 @@ const PostDetails = ({ currentArticle, closeArticle }) => {
                     <img
                         src={images}
                         alt={_id}
-                        style={{ aspectRatio: "1/1" }}
+                        style={{ aspectRatio: "8/10" }}
                         className='max-h-[648px] max-w-[550px] min-h-[450px] overflow-hidden rounded-tl rounded-bl'
                     />
                 </section>
