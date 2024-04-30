@@ -36,12 +36,18 @@ const UserPage = () => {
         }
     };
 
+    const compareDates = (a, b) => {
+        const dateA = new Date(a.publication_date);
+        const dateB = new Date(b.publication_date);
+        return dateB - dateA;
+    };
+
     useEffect(() => {
         const fetchPosts = async () => {
 
             const { data } = await axios.get(`https://server-fh106.onrender.com/api/posts?user=65e57068fb02872525c18f73`)
-            // console.log(DataPosts)
-            setPosts(data);
+
+            setPosts(data.sort(compareDates));
         }
 
         fetchPosts();
@@ -61,7 +67,7 @@ const UserPage = () => {
                 <h2 className="text-base font-medium m-0 opacity-50">
                     Roney Valdelomar
                 </h2>
-                <span className="text-sm opacity-50">2024</span>    
+                <span className="text-sm opacity-50">2024</span>
             </footer>
 
         </div>
