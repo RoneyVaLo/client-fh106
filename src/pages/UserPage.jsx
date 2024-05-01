@@ -4,6 +4,7 @@ import axios from 'axios';
 import UserInfo from '../components/UserInfo/ProfileInfo'
 import PostNavigation from '../components/PostNavigation/PostNavigation';
 import PostsView from '../components/PostsView/PostsView';
+import Loader from '../components/Loaders/Loader';
 
 // import DataPosts from '../data/posts.json';
 
@@ -17,6 +18,7 @@ const UserPage = () => {
     const [checkedSection, setCheckedSection] = useState(0);
 
     const [posts, setPosts] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const changePostSection = (section) => {
         setCheckedSection(section);
@@ -44,10 +46,12 @@ const UserPage = () => {
 
     useEffect(() => {
         const fetchPosts = async () => {
+            setIsLoading(true);
 
             const { data } = await axios.get(`https://server-fh106.onrender.com/api/posts?user=65e57068fb02872525c18f73`)
 
             setPosts(data.sort(compareDates));
+            setIsLoading(false);
         }
 
         fetchPosts();
@@ -61,7 +65,14 @@ const UserPage = () => {
 
             <PostNavigation checkedSection={checkedSection} setCheckedSection={changePostSection} />
 
-            {((checkedSection === 0) && posts) && <PostsView posts={posts} />}
+            {isLoading ?
+                <div className='w-full flex justify-center'>
+                    <Loader />
+                </div>
+                :
+                ((checkedSection === 0) && posts) && <PostsView posts={posts} />
+            }
+
 
             <footer className="mt-5 pt-5 pb-5 text-center flex justify-center gap-8 items-center border-t">
                 <h2 className="text-base font-medium m-0 opacity-50">
